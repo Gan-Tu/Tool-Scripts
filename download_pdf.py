@@ -2,6 +2,14 @@
 This script helps you download pdf files from remote destinations
 @author Gan Tu
 @version python 2
+
+[HOW TO CHANGE PYTHON VERSION]
+
+This script by default should be run by Python 2.
+To use this in Python 3, change the followings:
+
+1) change ALL occurrences of "urllib" to "urllib.request". 
+2) change print "success." to  print("sucess")
 '''
 
 import urllib
