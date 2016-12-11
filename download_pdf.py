@@ -9,7 +9,7 @@ This script by default should be run by Python 2.
 To use this in Python 3, change the followings:
 
 1) change ALL occurrences of "urllib" to "urllib.request". 
-2) change print "success." to  print("sucess")
+2) change print xxx to  print(xxx)
 '''
 
 import urllib
