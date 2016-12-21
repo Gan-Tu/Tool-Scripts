@@ -12,24 +12,24 @@ for the directory. For example, "/Users/Michael-Tu/messy/".
 
 You can obtain the complete path name by typing into your terminal the following command, under the directory you want to clean.
 
-'''
+```
 $ pwd
-'''
+```
 
 # Running the script
 To run the tool, you can simply compile the tool using:
 
-'''
+```
 $ javac CleanDuplicates.java
 $ java CleanDuplicates
-'''
+```
 
 or you can alternatively use the supplied Makefile:
 
-'''
+```
 $ make # this command compiles the java files
 $ make check # this command runs the file
-'''
+```
 
 After running, the terminal should prompt you to enter a path, where you shall supply
 the path name to the directory under which you want to clean duplicate files.
