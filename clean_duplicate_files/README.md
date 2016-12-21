@@ -35,3 +35,11 @@ After running, the terminal should prompt you to enter a path, where you shall s
 the path name to the directory under which you want to clean duplicate files.
 
 The terminal will keep prompting you for a path name until the given path is valid.
+
+# Clean Up
+You can run the following line to quickly delete compiled java class files after use.
+
+```
+$ make clean
+```
+
