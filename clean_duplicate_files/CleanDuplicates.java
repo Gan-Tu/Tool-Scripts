@@ -68,15 +68,23 @@ public class CleanDuplicates{
         }
         scanFiles(this.path, this.files);
 
-        System.out.println("Deleted files:");
+        System.out.println("List of deleted files:");
         for (File file : toDelete) {
-            System.out.println(file.toString());
+            System.out.println("to delete: " + file.toString());
+            System.out.println("to save: " + this.files.get(hash(file)));
+            System.out.println();
         }
-        System.out.println("done.");
 
+        Scanner in = new Scanner(System.in);
+        System.out.println("Type yes to delete. Any others to cancel:");
+        String confirm = in.nextLine();
+        if (!confirm.contains("y")) {
+            return;
+        }
         while (!this.toDelete.isEmpty()) {
             deleteFile(this.toDelete.pop());
         }
+        System.out.println("done.");
     }
 
     /** Add path of where to delete. Only valid when no path is supplied yet. */
