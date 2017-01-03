@@ -8,6 +8,7 @@ Simpily follow the instructions! :satisfied:
 
 # Working Tools
 - [x] Remove duplicate files in a directory (Java)
+- [x] List all duplicate files in a directory (Java)
 - [x] Scrap daily stock data for any symbol, and store them either locally or in AWS database (Python)
 - [x] Check if a website has a new update (Python)
 - [x] Batch download pdf files from remote url destinations (Python)
