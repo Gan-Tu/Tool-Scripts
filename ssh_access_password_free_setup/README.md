@@ -18,7 +18,7 @@ In the following tutorial, I will use "test@hello.world.cs.edu" as an example.
 Run the following code in your terminal under the directory where you saved the 'ssh_access_password_free_setup.sh' file.
 ```
 $ chmod +x ssh_access_password_free_setup.sh
-$ ./ssh_access_password_free_setup.sh
+$ bash ssh_access_password_free_setup.sh
 ```
 
 Then, just follow the directions. 
