@@ -14,7 +14,7 @@ read user
 echo -e "You chose: $user\n"
 
 # Get HostName
-servers=("ashby.cs.berkeley.edu"  "ssh.ocf.berkeley.edu" "other")
+servers=("hive1.cs.berkeley.edu" "ashby.cs.berkeley.edu"  "ssh.ocf.berkeley.edu" "other")
 count=1
 for server in "${servers[@]}"; do
     echo "$count. $server"
