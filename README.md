@@ -10,6 +10,7 @@ Simpily follow the instructions! :satisfied:
 - [x] Remove duplicate files in a directory (Java)
 - [x] List all duplicate files in a directory (Java)
 - [x] Scrap daily stock data for any symbol, and store them either locally or in AWS database (Python)
+- [x] Multi-purpose Python Scraper (Python)
 - [x] Check if a website has a new update (Python)
 - [x] Batch download pdf files from remote url destinations (Python)
 - [x] Help setup machines for future easy ssh access (access alias + password-free) (Bash)
