@@ -13,6 +13,7 @@ Simpily follow the instructions! :satisfied:
 - [x] Check if a website has a new update (Python)
 - [x] Batch download pdf files from remote url destinations (Python)
 - [x] Help setup machines for future easy ssh access (access alias + password-free) (Bash)
+- [x] Find number of connected components in a grey scale image
 
 # Tools Under Development
 - [ ] File Compression Tool (Java)
