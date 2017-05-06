@@ -15,6 +15,7 @@ Simpily follow the instructions! :satisfied:
 - [x] Batch download pdf files from remote url destinations (Python)
 - [x] Help setup machines for future easy ssh access (access alias + password-free) (Bash)
 - [x] Find number of connected components in a grey scale image (Python)
+- [x] Cound the word occurences of a directory of text files in Mandarin Chinese (Python)
 
 # Tools Under Development
 - [ ] File Compression Tool (Java)
