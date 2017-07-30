@@ -1,7 +1,7 @@
 import csv
 import json
 
-def csv_to_json(file_path, save_path, json_structure=None, indent=4, delimiter=','):
+def csv_to_json(file_path, save_path, json_structure, indent=4, delimiter=','):
 
     def save_json(save_path, jsonfile):
         assert type(jsonfile) == str, "invalid json file type"
@@ -27,13 +27,13 @@ def csv_to_json(file_path, save_path, json_structure=None, indent=4, delimiter='
         except Exception as e:
             print("Failed to load csv. Error:", e)
 
-    def convert(data, json_structure=None, indent=4):
+    def convert(data, json_structure, indent=4):
         try:
             print("Assuming first row are labels, processing...")
             labels = data[0]
             index_to_label = { i: label.strip() if label.strip() != '' else 'column_' + str(i) for i, label in enumerate(labels) }
 
-            if len(list(json_structure.keys())) == 1:
+            if json_structure != 'column' and len(list(json_structure.keys())) == 1:
                 label_to_index = { label.strip() if label.strip() != '' else 'column_' + str(i): i for i, label in enumerate(labels) }
                 primary_data_cell_key = list(json_structure.keys())[0]
                 def recursive_structure(structure, data_row):
@@ -41,7 +41,6 @@ def csv_to_json(file_path, save_path, json_structure=None, indent=4, delimiter='
                     for i, label in enumerate(structure):
                         if label in parsed:
                             raise KeyError("cannot have duplicated labels in json structures: ", label)
-                            return json.deum
                         nested_sub_structure = structure[label]
                         if isinstance(type(nested_sub_structure), (int, float)):
                             nested_sub_structure = str(nested_sub_structure)
@@ -69,7 +68,7 @@ def csv_to_json(file_path, save_path, json_structure=None, indent=4, delimiter='
                 for row in data[1:]:
                     for i, d in enumerate(row):
                         label_to_column[index_to_label[i]].append(d)
-                if json_structure is None:
+                if json_structure == 'column':
                     return json.dumps(label_to_column, indent=indent)
                 else:
                     def recursive_structure(structure):
@@ -90,9 +89,17 @@ def csv_to_json(file_path, save_path, json_structure=None, indent=4, delimiter='
                             parsed[label] = content
                         return parsed
                     return json.dumps(recursive_structure(json_structure), indent=indent)
-        except Exception as e:
-            raise Exception("Failed to convert csv. Error:" + e)
+
     data = load_csv(file_path, delimiter)
+
+    if len(json_structure) >= 4:
+        if 'row' in json_structure[:4]:
+            primary_key = json_structure[4:].strip()
+            if len(primary_key) <= 0:
+                raise KeyError("wrong primary key for row type", primary_key)
+            row_column_json = {primary_key: {x : x for x in data[0]}}
+            json_structure = row_column_json
+
     j = convert(data, json_structure, indent)
     save_json(save_path, j)
 

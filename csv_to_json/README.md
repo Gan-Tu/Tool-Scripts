@@ -11,13 +11,17 @@ $ csv_to_json(file_path, save_path, json_structure, indent, delimiter)
 
 - **file_path**: this is the path to your csv file
 - **save_path**: this is the new file path to save (xx.json)
-- **json_structure**: this is used to specify how you want the json file to be formatted. For more, read the next section. If you do not specify, by default it dumps a json file with column labels (assumption: first row are labels) as key, and column data as values.
+- **json_structure**: this is used to specify how you want the json file to be formatted. For more, read the next section.
 - **indent**: The indentation for json file. By default, it indents json file by 4 spaces for easy read. If you specify None, it will not indent anything.
 - **delimiter**: the delimiter of how your data columns are separated. By default, it assumes csv file uses "," as delimiter.
 
 ### Json Structure Format
 
-By default, if you do not specify this parameter, it dumps a json file with column labels (assumption: first row are labels) as key, and column data as values.
+**You can find examples of these in the later half of this section**
+
+If you pass `json_structure = 'column'`, it dumps a json file with column labels (assumption: first row are labels) as key, and column data as values.
+
+If you pass `json_structure = 'row: primary_key_label'`, it dumps a json file with the value of `primary_key_label` column as the key, and the values being the mapping of the colum name to that data point.
 
 If you want to customize the json structure, pass a dictionary in the following format, depending on your goal:
 
@@ -30,7 +34,7 @@ If you want to customize the json structure, pass a dictionary in the following 
     "key_label": [
         "data_column_name_1",
         {
-            "sub_key_label": "data_column_name_2" 
+            "sub_key_label": "data_column_name_2",
             ...
         },
         ...
@@ -47,7 +51,7 @@ In the above format, it uses the value at `key_label` column of each row as the 
     "key_label_1": [
         "data_column_name_1",
         {
-            "sub_key_label": "data_column_name_2"
+            "sub_key_label": "data_column_name_2",
             ...
         },
         ...
@@ -55,7 +59,7 @@ In the above format, it uses the value at `key_label` column of each row as the 
     "key_label_2": [
         "data_column_name_3", 
         {
-            "sub_key_label": "data_column_name_2"
+            "sub_key_label": "data_column_name_2",
             ...
         },
         ...
@@ -73,6 +77,49 @@ First Name | Last Name | Email Address| Phone Number
 --- | --- | --- | ---
 Alex  | Wong | example@gmail.com | 111-222-333
 Alice  | Andressen | example@domain.com  | 444-555-666
+
+* Using `json structure = 'column'`:
+
+```
+{
+    "First Name": [
+        "Alex",
+        "Alice"
+    ],
+    "Last Name": [
+        "Wong",
+        "Andressen"
+    ],
+    "Email Address": [
+        "example@gmail.com",
+        "example@domain.com"
+    ],
+    "Phone Number": [
+        "111-222-333",
+        "444-555-666"
+    ]
+}
+```
+
+
+* Using `json structure = 'row: Email Address'`:
+
+```
+{
+    "111-222-333": {
+        "First Name": "Alex",
+        "Last Name": "Wong",
+        "Email Address": "example@gmail.com",
+        "Phone Number": "111-222-333"
+    },
+    "444-555-666": {
+        "First Name": "Alice",
+        "Last Name": "Andressen",
+        "Email Address": "example@domain.com",
+        "Phone Number": "444-555-666"
+    }
+}
+```
 
 * Using json structure 1:
 
