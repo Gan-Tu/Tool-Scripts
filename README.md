@@ -17,6 +17,7 @@ Simpily follow the instructions! :satisfied:
 - [x] Find number of connected components in a grey scale image (Python)
 - [x] Count the word occurences of a directory of text files in Mandarin Chinese (Python)
 - [x] Flatten a nested list, however it is complicated. (Python)
+- [x] Convert a CSV file into a custom json format (Python)
 
 # Tools Under Development
 - [ ] File Compression Tool (Java)
