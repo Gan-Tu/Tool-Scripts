@@ -21,7 +21,7 @@ $ csv_to_json(file_path, save_path, json_structure, indent, delimiter)
 
 If you pass `json_structure = 'column'`, it dumps a json file with column labels (assumption: first row are labels) as key, and column data as values.
 
-If you pass `json_structure = 'row: primary_key_label'`, it dumps a json file with the value of `primary_key_label` column as the key, and the values being the mapping of the colum name to that data point.
+If you pass `json_structure = 'row: primary_key_label'`, it dumps a json file with the value of `primary_key_label` column as the key, and the values being the mapping of the colum name to that data point for that row.
 
 If you want to customize the json structure, pass a dictionary in the following format, depending on your goal:
 
