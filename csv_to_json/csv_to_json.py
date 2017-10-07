@@ -89,6 +89,8 @@ def csv_to_json(file_path, save_path, json_structure, indent=4, delimiter=','):
                             parsed[label] = content
                         return parsed
                     return json.dumps(recursive_structure(json_structure), indent=indent)
+        except Exception as e:
+            print(e)
 
     data = load_csv(file_path, delimiter)
 
