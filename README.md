@@ -19,6 +19,10 @@ Simpily follow the instructions! :satisfied:
 - [x] Flatten a nested list, however it is complicated. (Python)
 - [x] Convert a CSV file into a custom json format (Python)
 - [x] Download a csv file natively from html without a file dependency(JavaScript)
+- [x] untested data structures and common algorithms
+- [x] calibrate camera using photos of chessboard pattern
+- [x] markdown to json file converter
+
 
 # Tools Under Development
 - [ ] File Compression Tool (Java)
